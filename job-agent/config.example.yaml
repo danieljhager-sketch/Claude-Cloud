@@ -1,0 +1,66 @@
+# Job agent settings. Fill this in, then run:  python -m job_agent search
+
+# ---------------------------------------------------------------- about you
+# Claude copies these into application forms exactly as written.
+applicant:
+  first_name: Jane
+  last_name: Doe
+  email: jane.doe@example.com
+  phone: "+1 555 123 4567"
+  location: "Austin, TX, USA"
+  linkedin: "https://www.linkedin.com/in/janedoe"
+  github: ""
+  website: ""
+  work_authorization: "Authorized to work in the US for any employer"
+  needs_sponsorship: false        # true / false
+  willing_to_relocate: false      # true / false
+  earliest_start_date: "Two weeks after an offer"
+  salary_expectation: ""          # leave empty to let Claude ask you when a form requires it
+  # Answers to other questions you expect to see. Claude reuses these.
+  extra_answers:
+    "How did you hear about this job?": "Company careers page"
+
+# Your resume: a PDF (best), or a .txt / .md file. Relative paths start from this file's folder.
+resume_file: resume.pdf
+
+# ---------------------------------------------------------------- what to look for
+search:
+  # A job is kept if its title contains any of these.
+  roles: ["Software Engineer", "Backend Engineer", "Python Developer"]
+  # ...and dropped if its title contains any of these.
+  exclude_title_words: ["Staff", "Principal", "Manager", "Director", "Intern"]
+  # Kept if the location contains any of these. "Remote" also keeps remote jobs. Empty = anywhere.
+  locations: ["Remote", "Austin"]
+  remote_only: false
+
+  # Companies whose job boards to read. The name is in the company's careers page address:
+  #   boards.greenhouse.io/NAME  or  job-boards.greenhouse.io/NAME   -> greenhouse
+  #   jobs.lever.co/NAME                                             -> lever
+  #   jobs.ashbyhq.com/NAME                                          -> ashby
+  greenhouse: [stripe, airbnb]
+  lever: [spotify]
+  ashby: [ramp, openai]
+  # (These are examples. Replace them with companies you want to work for.)
+
+  # Search terms for remote jobs on remotive.com (any company). Use one or two.
+  remotive_search: ["python"]
+
+  # Let Claude search the web for more companies hiring for your roles.
+  # Costs a little extra (about $0.01 per search plus tokens).
+  discover_with_web_search: true
+  max_web_searches: 8
+
+# ---------------------------------------------------------------- scoring
+matching:
+  min_score: 70           # only apply to jobs Claude scores at least this high (0-100)
+  max_jobs_to_score: 40   # per run, to keep costs predictable
+
+# ---------------------------------------------------------------- applying
+apply:
+  max_applications_per_run: 5
+  require_approval: true  # Claude asks you before pressing every final "Submit". Keep this on.
+  headless: false         # false = show the browser so you can watch and solve CAPTCHAs
+  write_cover_letter: true
+
+claude:
+  model: claude-opus-5-5

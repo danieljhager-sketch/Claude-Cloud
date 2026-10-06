@@ -1,0 +1,22 @@
+{
+  "jobs": [
+    {
+      "id": 4012345,
+      "title": "Software Engineer, Backend ",
+      "absolute_url": "https://job-boards.greenhouse.io/acme/jobs/4012345",
+      "location": {"name": "Remote - US"},
+      "company_name": "Acme",
+      "first_published": "2026-09-30T12:00:00-04:00",
+      "updated_at": "2026-10-01T09:00:00-04:00",
+      "content": "&lt;p&gt;We build &lt;strong&gt;rockets&lt;/strong&gt; &amp;amp; more.&lt;/p&gt;&lt;ul&gt;&lt;li&gt;3+ years Python&lt;/li&gt;&lt;li&gt;SQL&lt;/li&gt;&lt;/ul&gt;"
+    },
+    {
+      "id": 4012346,
+      "title": "Engineering Manager",
+      "absolute_url": "https://job-boards.greenhouse.io/acme/jobs/4012346",
+      "location": {"name": "New York, NY"},
+      "content": ""
+    }
+  ],
+  "meta": {"total": 2}
+}

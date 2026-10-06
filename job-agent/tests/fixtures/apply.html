@@ -1,0 +1,104 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Apply: Backend Engineer at Acme</title>
+  <style>
+    .visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+    [role="listbox"] { border: 1px solid #ccc; margin: 0; padding: 0; list-style: none; }
+    [role="listbox"][hidden] { display: none; }
+    .field { margin: 12px 0; }
+  </style>
+</head>
+<body>
+  <h1>Backend Engineer</h1>
+  <form id="application" action="/submitted" method="post" enctype="multipart/form-data">
+    <h2>Your details</h2>
+    <div class="field"><label for="first_name">First Name *</label>
+      <input id="first_name" name="first_name" required></div>
+    <div class="field"><label for="last_name">Last Name *</label>
+      <input id="last_name" name="last_name" required></div>
+    <div class="field"><label for="email">Email *</label>
+      <input id="email" name="email" type="email" required></div>
+    <div class="field"><label for="phone">Phone</label>
+      <input id="phone" name="phone" type="tel"></div>
+
+    <div class="field">
+      <label for="resume">Resume/CV *</label>
+      <button type="button" onclick="document.getElementById('resume').click()">Attach</button>
+      <input id="resume" name="resume" type="file" class="visually-hidden" required>
+    </div>
+    <div class="field">
+      <label for="cover_letter">Cover Letter</label>
+      <input id="cover_letter" name="cover_letter" type="file">
+    </div>
+
+    <h2>Questions</h2>
+    <div class="field"><label for="authorized">Are you legally authorized to work in the United States? *</label>
+      <select id="authorized" name="authorized" required>
+        <option value="">Select...</option>
+        <option>Yes</option>
+        <option>No</option>
+      </select></div>
+
+    <div class="field">
+      <span id="sponsor-label">Will you now or in the future require visa sponsorship? *</span>
+      <input id="sponsor-input" role="combobox" aria-labelledby="sponsor-label" aria-required="true"
+             aria-expanded="false" aria-controls="sponsor-list" autocomplete="off">
+      <ul id="sponsor-list" role="listbox" hidden>
+        <li role="option">Yes</li>
+        <li role="option">No</li>
+      </ul>
+      <input type="hidden" id="sponsorship" name="sponsorship">
+    </div>
+
+    <div class="field">
+      <span id="adult-label">Are you at least 18 years old? *</span>
+      <div role="group" aria-labelledby="adult-label">
+        <button type="button" onclick="pickAdult('yes')">Yes</button>
+        <button type="button" onclick="pickAdult('no')">No</button>
+      </div>
+      <input type="hidden" id="over18" name="over18">
+    </div>
+
+    <div class="field"><label for="why">Why do you want to work at Acme?</label>
+      <textarea id="why" name="why"></textarea></div>
+
+    <fieldset>
+      <legend>Gender (voluntary)</legend>
+      <input type="radio" id="g1" name="gender" value="male"><label for="g1">Male</label>
+      <input type="radio" id="g2" name="gender" value="female"><label for="g2">Female</label>
+      <input type="radio" id="g3" name="gender" value="decline"><label for="g3">Decline to self-identify</label>
+    </fieldset>
+
+    <div class="field">
+      <input type="checkbox" id="privacy" name="privacy" required>
+      <label for="privacy">I agree to the privacy policy *</label>
+    </div>
+
+    <button type="submit">Submit application</button>
+  </form>
+
+  <script>
+    const input = document.getElementById('sponsor-input');
+    const list = document.getElementById('sponsor-list');
+    function showOptions() {
+      const q = input.value.toLowerCase();
+      list.hidden = false;
+      input.setAttribute('aria-expanded', 'true');
+      for (const li of list.children) li.hidden = !li.textContent.toLowerCase().includes(q);
+    }
+    input.addEventListener('focus', showOptions);
+    input.addEventListener('input', showOptions);
+    for (const li of list.children) {
+      li.addEventListener('click', () => {
+        document.getElementById('sponsorship').value = li.textContent;
+        input.value = li.textContent;
+        list.hidden = true;
+        input.setAttribute('aria-expanded', 'false');
+      });
+    }
+    function pickAdult(answer) { document.getElementById('over18').value = answer; }
+  </script>
+</body>
+</html>

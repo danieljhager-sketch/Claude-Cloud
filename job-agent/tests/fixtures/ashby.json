@@ -1,0 +1,27 @@
+{
+  "apiVersion": "1",
+  "jobs": [
+    {
+      "id": "7f9e0c1a-aaaa-bbbb-cccc-ddddeeeeffff",
+      "title": "Python Developer",
+      "location": "San Francisco",
+      "secondaryLocations": [{"location": "Remote (US)"}],
+      "isListed": true,
+      "isRemote": true,
+      "workplaceType": "Remote",
+      "employmentType": "FullTime",
+      "descriptionPlain": "Write Python all day.",
+      "descriptionHtml": "<p>Write Python all day.</p>",
+      "publishedAt": "2026-09-28T10:00:00.000+00:00",
+      "jobUrl": "https://jobs.ashbyhq.com/gizmo/7f9e0c1a-aaaa-bbbb-cccc-ddddeeeeffff",
+      "applyUrl": "https://jobs.ashbyhq.com/gizmo/7f9e0c1a-aaaa-bbbb-cccc-ddddeeeeffff/application"
+    },
+    {
+      "id": "unlisted-1",
+      "title": "Secret Role",
+      "location": "Remote",
+      "isListed": false,
+      "jobUrl": "https://jobs.ashbyhq.com/gizmo/unlisted-1"
+    }
+  ]
+}

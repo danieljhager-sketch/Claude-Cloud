@@ -1,0 +1,15 @@
+[
+  {
+    "id": "a1b2c3d4-0000-1111-2222-333344445555",
+    "text": "Backend Engineer",
+    "hostedUrl": "https://jobs.lever.co/widgets/a1b2c3d4-0000-1111-2222-333344445555",
+    "applyUrl": "https://jobs.lever.co/widgets/a1b2c3d4-0000-1111-2222-333344445555/apply",
+    "categories": {"location": "Austin, TX", "team": "Platform", "commitment": "Full-time", "allLocations": ["Austin, TX"]},
+    "workplaceType": "hybrid",
+    "createdAt": 1727700000000,
+    "descriptionPlain": "Widgets is hiring a backend engineer.",
+    "description": "<div>Widgets is hiring a backend engineer.</div>",
+    "lists": [{"text": "Requirements", "content": "<li>Go or Python</li><li>Postgres</li>"}],
+    "additionalPlain": "We offer equity."
+  }
+]

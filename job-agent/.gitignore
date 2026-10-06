@@ -1,0 +1,8 @@
+# Personal files: never commit these.
+config.yaml
+resume.*
+data/
+applications/
+
+__pycache__/
+.pytest_cache/
